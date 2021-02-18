@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楽天ウェブ検索で30口取得する</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function() {
+        $('#rakuten').on('click', function(event){
+            //配列の準備
+            const arr = [
+                '鬼滅の刃', '不織布マスク', '福袋', 'ふるさと納税', '加湿器', 'アウトレット' ,'ノースフェイス', 'トイレットペーパー', 'プロテイン',
+                '炭酸水', '靴下', 'シャンプー', '財布', '早い者勝ち', 'スマートウォッチ', 'アディダス', 'コーヒー', 'ピアス', 'スニーカー', '早い者勝ち',
+                'バッグ', 'リュック', 'ワイヤレスイヤホン', 'バレンタイン', 'ナイキ', '柔軟剤', 'パンツ', 'スカート', 'ナイトブラ', 'ミッフィー',
+                '子育て', 'カルチャー', 'おもしろ', '中国', '家族', 'ビジネス' ,'コロナウイルス', '調べてみた', '政治',
+                'SNS', '映画', 'スポーツ', '音楽', '雑学', '海外', 'アート', 'コーヒー', 'ココハツ', '動物', 'アニメ',
+                '学校', '経済', '選挙', 'テレビ', 'デジタル', '父親のモヤモヤ', 'ゲーム', '動画', 'お笑い', 'ファッション',
+                'レシピ', 'Youtube', 'プロ野球', '旅行', '加湿器', 'アイドル' ,'グルメ', 'アメリカ', 'やさしい日本語',
+                'やさしい日本語', 'インスタグラム', '広告', '紅白歌合戦', 'AKB48', 'マナー', '宇宙', 'ワールドカップ', '教師', '山口', '台風',
+                '環境問題', 'インターネット', '高知', '髭男爵', 'ゆるキャラ', '若者', '高校生', 'フィギュア', '水族館', '熊本'
+            ];
+
+            //配列の要素数をカウント
+            const array_count = 32;
+            //カウント用変数
+            const count = 90;
+            let i = 0;
+
+            //setInterval関数で1秒の遅延
+            timer = setInterval(function(){
+                console.log(i);
+                let j = Math.floor( Math.random() * count );
+                //window.open("https://websearch.rakuten.co.jp/Web?qt=" + arr[i] + "&ref=chext_tb_r&col=OW", "rakuten");
+                console.log("https://websearch.rakuten.co.jp/Web?qt=" + arr[j] + "&ref=chext_tb_r&col=OW");
+                //カウントアップ
+                i++;
+                //カウント用変数「i」が配列の要素数「array_count」になればsetInterval関数をキャンセル
+                if(i == array_count){
+                    //clearInterval関数の繰り返しをキャンセル
+                    clearInterval(timer);
+                }
+            }, 5000);
+        });
+    });
+</script>
+    <button id="rakuten">楽天ウェブ検索で30口取得する</button>
+</body>
+</html>
+
